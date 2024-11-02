@@ -7,12 +7,17 @@
           <%= button_to change_status_todo_path(todo, todo: { status: todo.complete? ? 'incomplete' : 'complete' }), class: "border border-dashed #{todo.complete? ? 'border-green-700' : 'border-gray-400 hover:border-green-700'} px-2 py-2 rounded-full #{todo.complete? ? 'text-green-700' : 'text-gray-400 hover:text-green-700'}", method: :patch do %>
             <% if todo.complete? %>
                 <span class="sr-only">Mark as incomplete</span>
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="darkred" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm7.707-3.707a1 1 0 0 0-1.414 1.414L10.586 12l-2.293 2.293a1 1 0 1 0 1.414 1.414L12 13.414l2.293 2.293a1 1 0 0 0 1.414-1.414L13.414 12l2.293-2.293a1 1 0 0 0-1.414-1.414L12 10.586 9.707 8.293Z" clip-rule="evenodd"/>
+            </svg>
+
               <% else %>
                 <span class="sr-only">Mark as complete</span>
-            <% end %>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
             </svg>
+            <% end %>
+
           <% end %>
           <%= button_to todo_path(todo), class: "border border-dashed #{todo.complete? ? 'border-red-700' : 'border-gray-400 hover:border-red-700'} px-2 py-2 rounded-full #{todo.complete? ? 'text-red-700' : 'text-gray-400 hover:text-red-700'}", method: :delete do %>
             <span class="sr-only">Delete</span>
